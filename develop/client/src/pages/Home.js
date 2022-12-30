@@ -1,12 +1,9 @@
 import React from 'react';
-
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+/* import { Navigate, useParams } from 'react-router-dom'; */
 import { useQuery } from '@apollo/client';
-
-
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
-
-import Auth from '../utils/auth';
+/* import Auth from '../utils/auth'; */
 
 const User = () => {
   const { userId } = useParams();
@@ -23,10 +20,10 @@ const User = () => {
   const user = data?.me || data?.user || {};
 
   // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
-  if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
+/*   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
     return <Navigate to="/me" />;
   }
-
+ */
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -34,7 +31,7 @@ const User = () => {
   if (!user?.username) {
     return (
       <h4>
-        You need to be logged in to see your user page. Use the navigation
+        You need to be logged in. Use the navigation
         links above to sign up or log in!
       </h4>
     );

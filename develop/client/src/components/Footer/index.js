@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+/* import { useLocation, useNavigate } from 'react-router-dom'; */
 
 const Footer = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
+/*   const location = useLocation();
+  const navigate = useNavigate(); */
   return (
     <footer>
       <h1>Footer</h1>
