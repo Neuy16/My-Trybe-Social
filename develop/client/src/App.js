@@ -2,15 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
-import Draft from './pages/Draft';
-import FriendsList from './pages/FriendsList';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Notifications from './pages/Notifications';
-import Profile from './pages/Profile';
+// import Notifications from './pages/Notifications';
+// import Profile from './pages/Profile';
 import Register from './pages/Register';
-import UserHome from './pages/UserHome';
-import UserPost from './pages/UserPost';
+// import UserHome from './pages/UserHome';
+
 
 
 const client = new ApolloClient({
@@ -36,7 +34,15 @@ function App() {
               path="/Login" 
               element={<Login />}
             />
+           <Route 
+              path="/Me" 
+              element={<userHome />}
+            />
             <Route 
+              path="/Me/:userId" 
+              element={<userHome />}
+            />
+            {/* <Route 
               path="/Feed/:id" 
               element={<UserHome />}
             />
@@ -47,19 +53,7 @@ function App() {
             <Route 
               path="/Notifications/:id" 
               element={<Notifications />}
-            />
-            <Route 
-              path="/Trybe/:id"
-              element={<FriendsList />}
-            />
-             <Route 
-              path="/Draft/:id"
-              element={<Draft />}
-            />
-             <Route 
-              path="/Post/:id"
-              element={<UserPost />}
-            />
+            /> */}
           </Routes>
         </div>
       </Router>
