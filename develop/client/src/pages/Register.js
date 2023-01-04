@@ -17,19 +17,26 @@ const Register = () => {
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
-  const handleChange = (event) => {
+/*   const handleChange = (event) => {
     const { username, value } = event.target;
+    setFormState({ ...formState, [username]: value });
+  }; */
 
-    setFormState({
-      ...formState,
-      [username]: value,
-    });
+  const handleChange = event => {
+    setFormState(event.target.value);
   };
+
 
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
     try {
       const { data } = await addUser({
@@ -40,6 +47,14 @@ const Register = () => {
     } catch (e) {
       console.error(e);
     }
+
+    setFormState({
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      password: '',
+    });
   };
 
   return (

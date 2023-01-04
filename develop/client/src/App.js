@@ -8,8 +8,8 @@ import Login from './pages/Login';
 // import Profile from './pages/Profile';
 import Register from './pages/Register';
 // import UserHome from './pages/UserHome';
-
-
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -21,6 +21,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-center align-center min-100-vh bg-primary">
+        <Header />
+          <div className="container">
           <Routes>
           <Route 
               path="/" 
@@ -42,19 +44,9 @@ function App() {
               path="/Me/:userId" 
               element={<userHome />}
             />
-            {/* <Route 
-              path="/Feed/:id" 
-              element={<UserHome />}
-            />
-            <Route 
-              path="/Profile/:id" 
-              element={<Profile />}
-            />
-            <Route 
-              path="/Notifications/:id" 
-              element={<Notifications />}
-            /> */}
           </Routes>
+        </div>
+        <Footer />
         </div>
       </Router>
     </ApolloProvider>
