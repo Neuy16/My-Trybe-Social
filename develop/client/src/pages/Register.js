@@ -16,27 +16,17 @@ const Register = () => {
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  // update state based on form input changes
-/*   const handleChange = (event) => {
-    const { username, value } = event.target;
-    setFormState({ ...formState, [username]: value });
-  }; */
-
-  const handleChange = event => {
-    setFormState(event.target.value);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
   };
 
 
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    event.stopPropagation();
     console.log(formState);
-
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
 
     try {
       const { data } = await addUser({
@@ -66,12 +56,11 @@ const Register = () => {
             {data ? (
               <p>
                 Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/">back to Login</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
-                  className="form-input"
                   placeholder="Your first name"
                   name="firstName"
                   type="text"
@@ -79,7 +68,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
                   placeholder="Your last name"
                   name="lastName"
                   type="text"
@@ -87,7 +75,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
                   placeholder="Your username"
                   name="username"
                   type="text"
@@ -95,7 +82,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
                   placeholder="Your email"
                   name="email"
                   type="email"
@@ -103,7 +89,6 @@ const Register = () => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
                   placeholder="******"
                   name="password"
                   type="password"

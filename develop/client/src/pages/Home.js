@@ -1,9 +1,8 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-/* import { Navigate, useParams } from 'react-router-dom'; */
+import {useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
-/* import Auth from '../utils/auth'; */
+import { Link } from 'react-router-dom';
 
 const User = () => {
   const { userId } = useParams();
@@ -19,24 +18,31 @@ const User = () => {
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_USER` query
   const user = data?.me || data?.user || {};
 
-  // Use React Router's `<Navigate />` component to redirect to personal user page if username is yours
-/*   if (Auth.loggedIn() && Auth.getUser().data._id === userId) {
-    return <Navigate to="/me" />;
-  }
- */
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   if (!user?.username) {
     return (
-      <h4>
+      <section>
+      <div>
+      <Link className="btn btn-lg btn-primary m-2" to="/Login">
+            Login
+          </Link>
+          <p> </p>
+          <Link className="btn btn-lg btn-light m-2" to="/Register">
+            Register
+          </Link>
+      </div>
+
+      <p>
         You need to be logged in. Use the navigation
         links above to sign up or log in!
-      </h4>
+      </p>
+      </section>
     );
   }
-
   
 };
 
