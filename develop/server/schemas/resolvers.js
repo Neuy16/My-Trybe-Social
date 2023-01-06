@@ -18,6 +18,14 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    posts: async () => {
+      return post.find();
+    },
+
+    post: async (parent, {postId}) =>{
+      return post.findOne({_id: postId});
+    } 
   },
 
   Mutation: {
@@ -45,13 +53,9 @@ const resolvers = {
       return { token, user };
     },
 
-    // Set up mutation so a logged in user can only remove their user and no one else's
-//     removeUser: async (parent, args, context) => {
-//       if (context.user) {
-//         return User.findOneAndDelete({ _id: context.user._id });
-//       }
-//       throw new AuthenticationError('You need to be logged in!');
-//     },
+    addPost: async (parent, {content}) => {
+      return await post.create({content});
+    },
   },
 };
 
