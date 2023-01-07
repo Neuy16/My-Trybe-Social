@@ -53,3 +53,21 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_POST = gql`
+query post {
+    _id
+    userID
+    content
+}
+`;
+
+export const QUERY_POSTS = gql`
+query posts {
+  query post {
+    _id
+    userID
+    content
+  }
+}
+`;

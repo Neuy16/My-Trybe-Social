@@ -24,11 +24,12 @@ export const ADD_USER = gql`
     }
 `;
 
-// export const ADD_POST = gql`
-//     mutation addPost(content: $String, likes: $Int, dislikes: $Int) {
-//         addPost(content: $content, likes: $likes, dislikes: $dislikes) {
-//             _id
-//             username
-//         }
-//     }
-// `;
+export const ADD_POST = gql`
+     mutation addPost($content: String!) {
+        addPost(content: $content) {
+            _id
+            userID
+            content
+         }
+    }
+ `;
