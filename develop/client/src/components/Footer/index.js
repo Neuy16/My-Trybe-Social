@@ -6,7 +6,7 @@ const Footer = () => {
   const navigate = useNavigate(); */
   return (
     <footer>
-      <h1>Footer</h1>
+     
     </footer>
   );
 };
