@@ -13,12 +13,6 @@ const handleChange = (event) => {
   setFormState({ ...formState, [name]: value });
 };
 
-
-
-
-
-
-
 // submit form
 const handleFormSubmit = async (event) => {
   event.preventDefault();

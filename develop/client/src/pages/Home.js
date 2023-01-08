@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 import { Link } from 'react-router-dom';
 
-const User = () => {
+const Home = () => {
   const { userId } = useParams();
 
   // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
@@ -46,4 +46,4 @@ const User = () => {
   
 };
 
-export default User;
+export default Home;
