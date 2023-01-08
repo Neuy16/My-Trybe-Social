@@ -1,15 +1,17 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
 import Home from './pages/Home';
 import Login from './pages/Login';
 // import Notifications from './pages/Notifications';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import UserHome from './pages/UserHome';
+import PostCreation from './pages/PostCreation';
 import Header from './components/Header';
 import Footer from './components/Footer';
+/* import Navigation from "./components/Navigation"; */
+import "./App.css";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -26,6 +28,7 @@ const client = new ApolloClient({
 });
 
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -53,6 +56,10 @@ function App() {
                 path="/me/:userId"
                 element={<UserHome />}
               />
+              <Route
+                path="/me/:userId/createpost"
+                element={<PostCreation />}
+              />
             </Routes>
           </div>
           <Footer />
@@ -61,5 +68,7 @@ function App() {
     </ApolloProvider>
   );
 }
+
+
 
 export default App;

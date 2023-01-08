@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
+import PostList from '../components/PostList';
 /* import { Link } from 'react-router-dom';
 import Auth from '../utils/auth'; */
 
@@ -13,7 +14,7 @@ const UserHome = () => {
         userId ? QUERY_SINGLE_USER : QUERY_ME,
         {
             variables: { userId: userId },
-        }
+        },
     );
 
 
@@ -21,11 +22,24 @@ const UserHome = () => {
         return <div>Loading...</div>;
     }
 
+console.log(data);
+
     return (
-        <h4>
-            welcome to your timeline {data.user.firstName}
-        </h4>
-    )
+        <section>
+            <h4>
+                welcome to your timeline {data.user.firstName}
+            </h4>
+
+
+            <div>
+                {loading ? (
+                    <div> Loading... </div>
+                ) : (
+                    <PostList />
+                )}
+            </div>
+        </section>
+    );
 };
 
 export default UserHome;

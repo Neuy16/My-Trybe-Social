@@ -32,6 +32,11 @@ export const QUERY_SINGLE_USER = gql`
         firstName
         lastName
       }
+      post {
+        _id
+        userId
+        content
+      }
     }
   }
 `;
@@ -50,6 +55,29 @@ export const QUERY_ME = gql`
         firstName
         lastName
       }
+      post {
+        _id
+        userId
+        content
+      }
     }
   }
+`;
+
+export const QUERY_POST = gql`
+query post {
+    _id
+    userId
+    content
+}
+`;
+
+export const QUERY_POSTS = gql`
+query posts {
+  query post {
+    _id
+    userId
+    content
+  }
+}
 `;
