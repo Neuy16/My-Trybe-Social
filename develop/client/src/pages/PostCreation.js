@@ -1,25 +1,28 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_POST } from '../utils/queries';
+/* import { PostList } from '../components/PostList'; */
+import PostForm from '../components/PostForm/index';
 
-const createPost = () => {
-    const { loading, data } = useQuery(QUERY_POST);
+import { QUERY_SINGLE_USER } from '../utils/queries';
 
+const PostCreation = () => {
+    const { userId } = useParams();
+    const { loading, data } = useQuery(QUERY_SINGLE_USER, {
+        variables: {userId: userId},
+    });
+    const user = data?.user || {};
+    console.log(user._id)
+    if (loading) {
+        return <div>Loading...</div>;
+      }
 
-    /* return (
-        <main>
-            <div className="container">
-                <form action="action_page.php">
-
-                    <label for="subject">Subject</label>
-                    <textarea id="postForm" name="postForm" placeholder="Write something.." style="height:200px"></textarea>
-
-                    <input type="submit" value="createPost">Create Post</input>
-
-                </form>
-            </div>
-        </main>
-    ); */
+    return (
+        <div>
+            <PostForm />
+        </div>
+    );
+ 
 };
 
-export default createPost;
+export default PostCreation;

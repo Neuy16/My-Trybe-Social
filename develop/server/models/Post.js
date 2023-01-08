@@ -2,8 +2,13 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 
-const PostSchema = new Schema(
+const postSchema = new Schema(
   {
+    userID: {
+      type: String,
+      required: true
+    },
+
     content: {
         type: String,
         required: "You need to leave a post!",
@@ -20,6 +25,6 @@ const PostSchema = new Schema(
   }
 );
 
-const post = model('Post', postSchema);
+const Post = model('Post', postSchema);
 
 module.exports = Post;

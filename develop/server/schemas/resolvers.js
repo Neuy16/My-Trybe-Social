@@ -53,8 +53,8 @@ const resolvers = {
       return { token, user };
     },
 
-    addPost: async (parent, {content}) => {
-      return await post.create({content});
+    addPost: async (parent, {userId, content}) => {
+      return await post.create({userId, content});
     },
   },
 };
