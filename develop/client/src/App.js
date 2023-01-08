@@ -5,7 +5,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
 import Login from './pages/Login';
 // import Notifications from './pages/Notifications';
-// import Profile from './pages/Profile';
+import Profile from './pages/Profile';
 import Register from './pages/Register';
 import UserHome from './pages/UserHome';
 import Header from './components/Header';
@@ -44,6 +44,10 @@ function App() {
               <Route
                 path="/login"
                 element={<Login />}
+              />
+              <Route
+              path="/profile/:userId"
+              element={<Profile />}
               />
               <Route
                 path="/me/:userId"
