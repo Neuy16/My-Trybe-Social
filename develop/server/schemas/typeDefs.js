@@ -13,7 +13,7 @@ type Query {
 type Mutation {
     login(username: String!, password: String!): Auth
     addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): Auth
-    addPost(content: String): User
+    addPost(userId: ID!, content: String!): User
     removePost(postID: String!): User
     addFriend(userID: ID!): User
     removeFriend(userID: ID!): User
@@ -29,19 +29,13 @@ type User {
     password: String   
     profilePicture: String 
     friends: [User]
-    userPosts: [Post]
+    post: [Post]
 }
 
 type Post {
     _id: ID!
-    userID: String
-    content: String
-}
-type Comment {
-    _id: ID!
-    content: String
-    likes: Int
-    dislikes: Int
+    userId: String!
+    content: String!
 }
 
 type Auth {

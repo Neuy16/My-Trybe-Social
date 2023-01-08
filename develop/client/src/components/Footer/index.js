@@ -1,14 +1,14 @@
-import React from 'react';
-/* import { useLocation, useNavigate } from 'react-router-dom'; */
+import React from "react";
+import Navigation from '../Navigation/index';
 
 const Footer = () => {
-/*   const location = useLocation();
-  const navigate = useNavigate(); */
-  return (
-    <footer>
-     
-    </footer>
-  );
-};
+    return (
+        <div className="footer">
+            <div>
+                <Navigation></Navigation>
+            </div>
+        </div>
+    );
+    }
 
 export default Footer;

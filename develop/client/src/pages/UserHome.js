@@ -2,8 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
-import { QUERY_POST } from '../utils/queries';
-import { QUERY_POSTS } from '../utils/queries';
 import PostList from '../components/PostList';
 /* import { Link } from 'react-router-dom';
 import Auth from '../utils/auth'; */
@@ -17,14 +15,14 @@ const UserHome = () => {
         {
             variables: { userId: userId },
         },
-        QUERY_POST,
-        QUERY_POSTS
     );
 
 
     if (loading) {
         return <div>Loading...</div>;
     }
+
+console.log(data);
 
     return (
         <section>
@@ -37,9 +35,7 @@ const UserHome = () => {
                 {loading ? (
                     <div> Loading... </div>
                 ) : (
-                    <PostList>
-                        posts = {data.posts}
-                    </PostList>
+                    <PostList />
                 )}
             </div>
         </section>
