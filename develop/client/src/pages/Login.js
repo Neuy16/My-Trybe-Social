@@ -9,51 +9,52 @@ const LoginForm = (props) => {
   const [formState, setFormState] = useState(null);
   const [loginUser, { error, data }] = useMutation(LOGIN_USER);
 
-const handleChange = (event) => {
-  const { name, value } = event.target;
-  setFormState({ ...formState, [name]: value });
-};
-console.log(formState);
-
-useEffect(() => {
-  if (Auth.loggedIn()) {
-    Auth.logout();
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
   };
-},[])
+  console.log(formState);
 
-// submit form
-const handleFormSubmit = async (event) => {
-  event.preventDefault();
-  event.stopPropagation();
+  useEffect(() => {
+    if (Auth.loggedIn()) {
+      Auth.logout();
+    };
+  }, [])
 
-  try {
-    const { data } = await loginUser({
-      variables: { ...formState },
-    });
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-    Auth.login(data.login.token);
-  } catch (e) {
-    console.error(e);
-  }
+    try {
+      const { data } = await loginUser({
+        variables: { ...formState },
+      });
 
-  // clear form values
-  setFormState(null);
-};
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
 
-return (
-  <main className="flex-row justify-center mb-4">
-    <div className="col-12 col-lg-10">
-      <div className="card">
-        <h4 className="card-header bg-dark text-light p-2">Login</h4>
-        <div className="card-body">
+    // clear form values
+    setFormState(null);
+  };
+
+  return (
+    <main className="hero is-fullheight columns is-vcentered is-centered is-flex">
+      <section className='loginPage'>
+        <div className="">
+
+
           {data ? (
             <p>
-          <div>Loading...</div>
+              <div>Loading...</div>
             </p>
           ) : (
-        
+
+
             <form onSubmit={handleFormSubmit}>
-              <input
+              <input className='log-input input is-large'
                 placeholder="Your username"
                 name="username"
                 type="text"
@@ -61,9 +62,9 @@ return (
                 onChange={handleChange}
                 required
               />
-             
-              <input
-                placeholder="******"
+
+              <input className='pass-input input is-large'
+                placeholder="Your Password"
                 name="password"
                 type="password"
                 value={!!formState ? formState.password : ''}
@@ -71,13 +72,16 @@ return (
                 required
               />
               <button
-                className="btn btn-block btn-info"
+                className="loginbtn btn-block btn-info"
                 style={{ cursor: 'pointer' }}
                 type="submit"
               >
-                Submit
+                Sign In
               </button>
             </form>
+
+
+
           )}
 
           {error && (
@@ -86,10 +90,10 @@ return (
             </div>
           )}
         </div>
-      </div>
-    </div>
-  </main>
-);
-  };
+      </section>
+
+    </main>
+  );
+};
 
 export default LoginForm;

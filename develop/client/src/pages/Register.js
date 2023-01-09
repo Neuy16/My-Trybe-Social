@@ -48,71 +48,72 @@ const Register = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Register</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{" "}
-                <Link to="/">back to Login</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  placeholder="Your first name"
-                  name="firstName"
-                  type="text"
-                  value={formState.firstName}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="Your last name"
-                  name="lastName"
-                  type="text"
-                  value={formState.lastName}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.username}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+    <main className="hero is-fullheight columns is-vcentered is-centered is-flex">
+      <section className='registerPage'>
+        <div className="">
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
+
+          {data ? (
+            <p>
+              Success! You may now head{" "}
+              <Link to="/">back to Login</Link>
+            </p>
+          ) : (
+
+
+            <form onSubmit={handleFormSubmit}>
+              <input className='fname-input input is-large'
+                placeholder="First Name"
+                name="firstName"
+                type="text"
+                value={formState.firstName}
+                onChange={handleChange}
+              />
+              <input className='lname-input input is-large'
+                placeholder="Last Name"
+                name="lastName"
+                type="text"
+                value={formState.lastName}
+                onChange={handleChange}
+              />
+              <input className='user-name-input input is-large'
+                placeholder="Username"
+                name="username"
+                type="text"
+                value={formState.username}
+                onChange={handleChange}
+              />
+              <input className='email-input input is-large'
+                placeholder="Email"
+                name="email"
+                type="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+              <input className='reg-pass-input input is-large'
+                placeholder="Password"
+                name="password"
+                type="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+              <button
+                className="registerbtn btn-block btn-info"
+                style={{ cursor: "pointer" }}
+                type="submit"
+              >
+                REGISTER
+              </button>
+            </form>
+          )}
+
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">
+              {error.message}
+            </div>
+          )}
         </div>
-      </div>
+      </section>
     </main>
   );
 };

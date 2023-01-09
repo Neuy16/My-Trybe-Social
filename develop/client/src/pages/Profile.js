@@ -21,43 +21,66 @@ const Profile = () => {
     <Fragment>
       {!!data && (
         <div className="container is-widescreen">
-          <div className="card">
-            <div className="card-image">
-              <figure className="image is-4by3">
-                <img src={pic} alt="Human Sillouette" />
-              </figure>
-            </div>
-            <div className="card-content has-background-success-light">
-              <div className="media">
-                <div className="media-left">
-                  <figure className="image is-48x48">
-                    <img src={pic} alt="Human Sillouette" />
-                  </figure>
-                </div>
-                <div className="media-content columns is-flex">
-                  <div className="column-1">
-                  <p className="container title is-4">
-                    {data.user.firstName} {data.user.lastName}
-                  </p>
-                  <p className="subtitle is-b is-6">
-                    @{data.user.username}
-                  </p>
-                  </div>
-                  <button class="button is-small mx-2 is-success is-justify-content-end">
-                    <span>Edit Profile</span>
-                  </button>
-                </div>
-              </div>
+          <div className="profile-content-section card">
 
-              <div className="content">
-                This bio is empty... got nothing to say?
-                <br />
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                <p className="">Email: {data.user.email}</p>
+            <section class="cover-pic hero is-medium">
+              <div class="hero-body">
+                <p class="title">
+                  Welcome To Your Profile
+                </p>
+                <p class="subtitle">
+                  Edit Profile to Customize Background
+                </p>
               </div>
-            </div>
+            </section>
+
+            <section>
+              <div className="profile-info-section card-content">
+                <div className="media">
+
+
+                  <div className="media-left">
+
+                    <figure className="profile-pic image is-48x48">
+                      <img src={pic} alt="Human Sillouette" />
+                    </figure>
+
+                  </div>
+
+                  <div className="user=tags media-content columns">
+                    <div className="column-1">
+
+                      <p className="container title is-4">
+                        {data.user.firstName} {data.user.lastName}
+                      </p>
+
+                      <p className="subtitle is-b is-6">
+                        @{data.user.username}
+                      </p>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div className="content">
+                  This bio is empty... got nothing to say?
+                  <br />
+                  <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+
+                  <p className="">Email: {data.user.email}</p>
+
+                </div>
+              </div>
+            </section>
+
+            <button class="edit-profile-btn button btn-block">
+              Edit Profile
+            </button>
+
           </div>
+
           <div>{data.user.post}</div>
+
         </div>
       )}
     </Fragment>

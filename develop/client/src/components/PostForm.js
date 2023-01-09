@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../utils/mutations';
-import Auth from "../utils/auth";
 
 const PostForm = ({ userId }) => {
     console.log(userId);
@@ -23,7 +22,7 @@ const PostForm = ({ userId }) => {
             const { data } = await addPost({
                 variables: { userId, ...formState },
             });
-           /*  Auth.login(data.addUser.token); */
+            /*  Auth.login(data.addUser.token); */
         } catch (e) {
             console.error(e);
         }
@@ -34,37 +33,45 @@ const PostForm = ({ userId }) => {
     };
 
     return (
-        <main>
-            <h3>Create A Post</h3>
-            <form
-                className='postFormContent'
-                onSubmit={handleFormSubmit}
-            >
-                <div className='postInput'>
-                    <textarea
-                        name='content'
-                        placeholder='Start Typing...'
-                        value={formState.content}
-                        className='formInput'
-                        onChange={handleChange} />
-                </div>
+        <main className='hero is-fullheight columns is-vcentered is-centered is-flex'>
+            <section className='createPost-page'>
+                <div className=''>
 
-                <div className='postSubmitButton'>
-                    <button
-                        className="btn btn-block btn-info"
-                        style={{ cursor: "pointer" }}
-                        type="submit"
-                    >
-                        Create Post
-                    </button>
-                </div>
-
-                {error && (
-                    <div>
-                        Something is not a-okay...
+                    <div className='post-title'>
+                    <h3>Create A Post</h3>
                     </div>
-                )}
-            </form>
+                    
+                    <form
+                        className='postFormContent'
+                        onSubmit={handleFormSubmit}
+                    >
+                        <div className='postInput'>
+                            <textarea
+                                name='content'
+                                placeholder='Start Typing...'
+                                value={formState.content}
+                                className='formInput textarea is-large'
+                                onChange={handleChange} />
+                        </div>
+
+                        <div className='postSubmitButton'>
+                            <button
+                                className="postbtn btn-block btn-info"
+                                style={{ cursor: "pointer" }}
+                                type="submit"
+                            >
+                                Create Post
+                            </button>
+                        </div>
+
+                        {error && (
+                            <div>
+                                Something is not a-okay...
+                            </div>
+                        )}
+                    </form>
+                </div>
+            </section>
         </main >
     );
 };
