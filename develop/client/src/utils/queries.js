@@ -9,10 +9,10 @@ export const QUERY_USERS = gql`
       username
       email
       profilePicture
-      friends {
+      post {
         _id
-        firstName
-        lastName
+        userId
+        content
       }
     }
   }
@@ -27,11 +27,6 @@ export const QUERY_SINGLE_USER = gql`
       username
       email
       profilePicture
-      friends {
-        _id
-        firstName
-        lastName
-      }
       post {
         _id
         userId
@@ -50,11 +45,6 @@ export const QUERY_ME = gql`
       username
       email
       profilePicture
-      friends {
-        _id
-        firstName
-        lastName
-      }
       post {
         _id
         userId
@@ -74,7 +64,7 @@ query post {
 
 export const QUERY_POSTS = gql`
 query posts {
-  query post {
+ posts {
     _id
     userId
     content

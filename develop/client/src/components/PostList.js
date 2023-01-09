@@ -1,23 +1,12 @@
 import React from 'react';
 /* import { QUERY_POST } from '../../utils/queries'; */
-import { QUERY_POSTS } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
-
-
-
 
 
 const PostList = ({ posts }) => {
-    const { loading, data } = useQuery(QUERY_POSTS);
+    
     if (!posts) {
         return <h3>no posts yet</h3>;
     }
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    console.log(data)
 
     return (
         <div>

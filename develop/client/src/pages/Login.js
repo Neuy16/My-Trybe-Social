@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+/* import auth from '../utils/auth'; */
 
 const LoginForm = (props) => {
-  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [formState, setFormState] = useState(null);
   const [loginUser, { error, data }] = useMutation(LOGIN_USER);
 
 const handleChange = (event) => {
   const { name, value } = event.target;
   setFormState({ ...formState, [name]: value });
 };
+console.log(formState);
+
+useEffect(() => {
+  if (Auth.loggedIn()) {
+    Auth.logout();
+  };
+},[])
 
 // submit form
 const handleFormSubmit = async (event) => {
   event.preventDefault();
   event.stopPropagation();
-  console.log(formState);
+
   try {
     const { data } = await loginUser({
       variables: { ...formState },
@@ -29,10 +37,7 @@ const handleFormSubmit = async (event) => {
   }
 
   // clear form values
-  setFormState({
-    username: '',
-    password: '',
-  });
+  setFormState(null);
 };
 
 return (
@@ -52,7 +57,7 @@ return (
                 placeholder="Your username"
                 name="username"
                 type="text"
-                value={formState.username}
+                value={!!formState ? formState.username : ''}
                 onChange={handleChange}
                 required
               />
@@ -61,7 +66,7 @@ return (
                 placeholder="******"
                 name="password"
                 type="password"
-                value={formState.password}
+                value={!!formState ? formState.password : ''}
                 onChange={handleChange}
                 required
               />

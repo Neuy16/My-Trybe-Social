@@ -27,11 +27,9 @@ export const ADD_USER = gql`
 export const ADD_POST = gql`
      mutation addPost($userId: ID!, $content: String!) {
         addPost(userId: $userId, content: $content) {
-            post {
             _id
             userId
             content
-            }
          }
     }
  `;

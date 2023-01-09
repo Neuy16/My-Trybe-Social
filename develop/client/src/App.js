@@ -12,6 +12,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 /* import Navigation from "./components/Navigation"; */
 import "./App.css";
+/* import auth from "./utils/auth"; */
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -26,6 +27,9 @@ const client = new ApolloClient({
   uri: "/graphql",
   cache: new InMemoryCache(),
 });
+
+
+
 
 function App() {
 
@@ -51,6 +55,10 @@ function App() {
               <Route
               path="/profile/:userId"
               element={<Profile />}
+              />
+              <Route
+                path="/logout"
+                element={<Login />}
               />
               <Route
                 path="/me/:userId"
