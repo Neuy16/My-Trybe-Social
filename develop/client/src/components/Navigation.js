@@ -37,10 +37,10 @@ function Navigation({userId}) {
 
     return (
         <nav>
-            <ul>
-                <CustomLink to={`/me/${decoded.data._id}`}>Home</CustomLink>
-                <CustomLink to={`/me/${decoded.data._id}/createpost`}>Post</CustomLink>
-                <CustomLink to="/logout">Log Out</CustomLink> {/* make this the profile link */}
+            <ul className='columns'>
+                <CustomLink className="button is-fullwidth" to={`/me/${decoded.data._id}`}>Home</CustomLink>
+                <CustomLink className="button is-fullwidth" to={`/me/${decoded.data._id}/createpost`}>Post</CustomLink>
+                <CustomLink className="button is-fullwidth" to="/logout">Log Out</CustomLink> {/* make this the profile link */}
             </ul>
         </nav>
     );
