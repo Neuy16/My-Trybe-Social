@@ -2,31 +2,47 @@
     --backgroundGreen: rgb(54, 109, 75);
     --menuGreen: rgb(207, 220, 212);
     --buttonOrange: rgb(191, 118, 29);
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
     background-color: var(--backgroundGreen);
-
 }
 
-/* Landing Page styles */
+/*Header Styles*/
+
+.headerTitle {
+    font-size: xx-large;
+    font-family: fantasy;
+    color: var(--buttonOrange);
+}
+
+
+
+
+
+/* Landing Page Styles */
 
 .landingPage {
     background-color: var(--menuGreen);
+    margin: auto;
+    width: 75%;
     text-align: center;
+    padding: 5%;
 }
 
 .LPbtn {
     background-color: var(--buttonOrange);
-    color: white;
-    padding: 1%;
+    color: var(--menuGreen);
     border: none;
-    border-radius: 15%;
     cursor: pointer;
+    width: 50vw;
+    height: 10vh;
+    margin: 1%;
+    font-size: xx-large;
+    font-family: fantasy;
 }
 
 .LPbtn:hover {
     background-color: var(--backgroundGreen);
+}
+
+.LPtxt {
+    font-size: x-large;
 }

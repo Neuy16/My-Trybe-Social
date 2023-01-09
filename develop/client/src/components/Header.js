@@ -4,8 +4,8 @@ import React from 'react';
 
   return (
 
-    <div>
-      <h2>Header</h2>
+    <div className='headerTitle'>
+      <h2>MY TRYBE</h2>
     </div>
 
   );

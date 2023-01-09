@@ -26,32 +26,32 @@ const Home = () => {
 
   if (!user?.username) {
     return (
-      <div className='landingPage'>
-        <section>
+      <main className='hero is-fullheight columns is-vcentered is-centered is-flex'>
+        <section className='landingPage '>
 
-          <div>
 
-            <div>
-              <Link className="LPbtn" to="/Login">
-                Login
-              </Link>
-            </div>
+                  <div className='column'>
+                    <Link className="LPbtn button" to="/Login">
+                      Login
+                    </Link>
+                  </div>
 
-            <div>
-            <Link className="LPbtn" to="/Register">
-              Register
-            </Link>
-            </div>
+                  <div className='column'>
+                    <Link className="LPbtn button" to="/Register">
+                      Register
+                    </Link>
+                  </div>
 
+
+          <div className='column'>
+            <p className='LPtxt'>
+              You need to be logged in. Use the navigation
+              links above to Register or Login!
+            </p>
           </div>
-
-          <p>
-            You need to be logged in. Use the navigation
-            links above to sign up or log in!
-          </p>
-
         </section>
-      </div>
+
+      </main>
     );
   }
 
