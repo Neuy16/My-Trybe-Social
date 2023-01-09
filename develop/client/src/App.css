@@ -11,11 +11,8 @@
     font-size: xx-large;
     font-family: fantasy;
     color: var(--buttonOrange);
+    padding-left: 2%;
 }
-
-
-
-
 
 /* Landing Page Styles */
 
@@ -45,4 +42,168 @@
 
 .LPtxt {
     font-size: x-large;
+}
+
+
+/* Login Page Styles */
+
+.loginPage {
+    background-color: var(--menuGreen);
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    padding: 5%;
+}
+
+.loginbtn {
+    background-color: var(--buttonOrange);
+    color: var(--menuGreen);
+    border: none;
+    cursor: pointer;
+    width: 50vw;
+    height: 10vh;
+    margin: 1%;
+    font-size: xx-large;
+    font-family: fantasy;
+    margin-top: 5%;
+}
+
+.loginbtn:hover {
+    background-color: var(--backgroundGreen);
+}
+
+.logintxt {
+    font-size: x-large;
+}
+
+.log-input{
+    margin-top: 5%;
+}
+
+.pass-input{
+    margin-top: 5%;
+}
+
+/* Register Page Styles */
+
+.registerPage {
+    background-color: var(--menuGreen);
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    padding: 5%;
+}
+
+.registerbtn {
+    background-color: var(--buttonOrange);
+    color: var(--menuGreen);
+    border: none;
+    cursor: pointer;
+    width: 50vw;
+    height: 10vh;
+    margin: 1%;
+    font-size: xx-large;
+    font-family: fantasy;
+    margin-top: 5%;
+}
+
+.registerbtn:hover {
+    background-color: var(--backgroundGreen);
+}
+
+.registertxt {
+    font-size: x-large;
+}
+
+.fname-input {
+    margin-top: 5%;
+}
+
+.lname-input {
+    margin-top: 5%;
+}
+
+.user-name-input {
+    margin-top: 5%;
+}
+
+.email-input {
+    margin-top: 5%;
+}
+
+.reg-pass-input {
+    margin-top: 5%;
+}
+
+/* Create Post Page Styles */
+
+.createPost-page {
+    background-color: var(--menuGreen);
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    padding: 5%;
+}
+
+.formInput {
+    margin-top: 5%;
+
+}
+
+.postbtn {
+    background-color: var(--buttonOrange);
+    color: var(--menuGreen);
+    border: none;
+    cursor: pointer;
+    width: 50vw;
+    height: 10vh;
+    margin-top: 5%;
+    font-size: xx-large;
+    font-family: fantasy;
+}
+
+.postbtn:hover {
+    background-color: var(--backgroundGreen);
+}
+
+.post-title {
+    font-size: xx-large;
+    font-family: fantasy;
+}
+
+
+/* Profile Page Styles */
+
+.profile-content-section {
+    background-color: var(--backgroundGreen);
+}
+
+
+.cover-pic {
+    background-color: var(--buttonOrange);
+}
+
+.profile-info-section {
+    background-color: var(--menuGreen);
+    margin: 1%;
+    padding: 15px;
+}
+
+.edit-profile-btn {
+    background-color: var(--buttonOrange);
+    color: var(--menuGreen);
+    border: none;
+    cursor: pointer;
+    margin: 1%;
+    font-size: large;
+    font-family: fantasy;
+
+}
+
+.edit-profile-btn:hover {
+    background-color: var(--backgroundGreen);
+}
+
+.profile-pic {
+    padding: 1px;
 }
