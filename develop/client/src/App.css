@@ -1,0 +1,32 @@
+:root {
+    --backgroundGreen: rgb(54, 109, 75);
+    --menuGreen: rgb(207, 220, 212);
+    --buttonOrange: rgb(191, 118, 29);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--backgroundGreen);
+
+}
+
+/* Landing Page styles */
+
+.landingPage {
+    background-color: var(--menuGreen);
+    text-align: center;
+}
+
+.LPbtn {
+    background-color: var(--buttonOrange);
+    color: white;
+    padding: 1%;
+    border: none;
+    border-radius: 15%;
+    cursor: pointer;
+}
+
+.LPbtn:hover {
+    background-color: var(--backgroundGreen);
+}

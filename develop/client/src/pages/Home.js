@@ -1,8 +1,9 @@
 import React from 'react';
-import {useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 import { Link } from 'react-router-dom';
+import 'bulma/css/bulma.css'
 
 const Home = () => {
   const { userId } = useParams();
@@ -25,25 +26,35 @@ const Home = () => {
 
   if (!user?.username) {
     return (
-      <section>
-      <div>
-      <Link className="btn btn-lg btn-primary m-2" to="/Login">
-            Login
-          </Link>
-          <p> </p>
-          <Link className="btn btn-lg btn-light m-2" to="/Register">
-            Register
-          </Link>
-      </div>
+      <div className='landingPage'>
+        <section>
 
-      <p>
-        You need to be logged in. Use the navigation
-        links above to sign up or log in!
-      </p>
-      </section>
+          <div>
+
+            <div>
+              <Link className="LPbtn" to="/Login">
+                Login
+              </Link>
+            </div>
+
+            <div>
+            <Link className="LPbtn" to="/Register">
+              Register
+            </Link>
+            </div>
+
+          </div>
+
+          <p>
+            You need to be logged in. Use the navigation
+            links above to sign up or log in!
+          </p>
+
+        </section>
+      </div>
     );
   }
-  
+
 };
 
 export default Home;
