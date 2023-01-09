@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Home from './pages/Home';
 import Login from './pages/Login';
-/* import Profile from './pages/Profile'; */
+// import Notifications from './pages/Notifications';
+import Profile from './pages/Profile';
 import Register from './pages/Register';
 import UserHome from './pages/UserHome';
 import PostCreation from './pages/PostCreation';
@@ -50,6 +51,10 @@ function App() {
               <Route
                 path="/login"
                 element={<Login />}
+              />
+              <Route
+              path="/profile/:userId"
+              element={<Profile />}
               />
               <Route
                 path="/logout"
