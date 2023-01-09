@@ -35,7 +35,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="fullPage">
           <Header />
           <div>
             <Routes>
@@ -70,7 +69,6 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </div>
       </Router>
     </ApolloProvider>
   );
