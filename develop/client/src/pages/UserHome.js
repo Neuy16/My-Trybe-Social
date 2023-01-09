@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 import PostList from '../components/PostList';
+import { QUERY_POSTS } from '../utils/queries';
+
 /* import { Link } from 'react-router-dom';
 import Auth from '../utils/auth'; */
 
@@ -17,12 +19,28 @@ const UserHome = () => {
         },
     );
 
+    const { loadingP, userPost } = useQuery(QUERY_POSTS);
 
-    if (loading) {
-        return <div>Loading...</div>;
+    if (loadingP) {
+        return <div>Loading posts...</div>;
     }
 
-console.log(data);
+
+    //this is our problem
+    // user posts is returning undefined instead of having the userPost value
+    console.log(userPost);
+
+
+
+
+
+
+
+    if (loading) {
+        return <div>Loading user...</div>;
+    }
+
+/* console.log(data); */
 
     return (
         <section>
@@ -35,7 +53,7 @@ console.log(data);
                 {loading ? (
                     <div> Loading... </div>
                 ) : (
-                    <PostList />
+                    <PostList posts={userPost}/>
                 )}
             </div>
         </section>

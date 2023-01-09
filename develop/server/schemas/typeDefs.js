@@ -7,16 +7,14 @@ type Query {
     user(userId: ID!): User
     me: User
     posts: [Post]!
-    post(postId: ID!): Post
+    post: Post
 }
 
 type Mutation {
     login(username: String!, password: String!): Auth
     addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): Auth
-    addPost(userId: ID!, content: String!): User
-    removePost(postID: String!): User
-    addFriend(userID: ID!): User
-    removeFriend(userID: ID!): User
+    addPost(userId: ID!, content: String!): Post
+    removePost(postID: String!): Post
     updateUser(firstName: String, lastName: String, profilePicture: String): User
 }
 
@@ -28,7 +26,6 @@ type User {
     email: String 
     password: String   
     profilePicture: String 
-    friends: [User]
     post: [Post]
 }
 

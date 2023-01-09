@@ -27,3 +27,13 @@ export const getMe = (token) => {
       body: JSON.stringify(userData),
     });
   };
+
+  export const logoutUser = (userData) => {
+    return fetch('/api/users/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+  };

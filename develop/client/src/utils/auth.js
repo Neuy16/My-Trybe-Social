@@ -25,7 +25,6 @@ class AuthService {
 
     login(token) {
       const decoded = decode(token);
-      console.log(decoded.data)
         localStorage.setItem('id_token', token);
         window.location.assign(`/me/${decoded.data._id}`);
     }
