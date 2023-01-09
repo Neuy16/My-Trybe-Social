@@ -24,14 +24,14 @@ const Profile = () => {
           <div className="card">
             <div className="card-image">
               <figure className="image is-4by3">
-                <img src={pic} alt="Placeholder image" />
+                <img src={pic} alt="Human Sillouette" />
               </figure>
             </div>
             <div className="card-content has-background-success-light">
               <div className="media">
                 <div className="media-left">
                   <figure className="image is-48x48">
-                    <img src={pic} alt="Placeholder image" />
+                    <img src={pic} alt="Human Sillouette" />
                   </figure>
                 </div>
                 <div className="media-content columns is-flex">

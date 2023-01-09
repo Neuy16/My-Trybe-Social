@@ -43,18 +43,20 @@ const UserHome = () => {
 /* console.log(data); */
 
     return (
-        <section>
-            <h4>
-                welcome to your timeline {data.user.firstName}
-            </h4>
+        <section className='hero is-fullheight has-background-success-light'>
+            <div className=''>
+            <div className='is-size-2 is-italic is-underlined'>
+                <strong className=''>Welcome to your timeline {data.user.firstName}!</strong>
+            </div>
 
 
-            <div>
+            <div className='hero is-halfheight has-background-white-ter'>
                 {loading ? (
                     <div> Loading... </div>
                 ) : (
                     <PostList posts={userPost}/>
                 )}
+            </div>
             </div>
         </section>
     );
