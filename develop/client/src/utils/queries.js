@@ -63,11 +63,21 @@ query post {
 `;
 
 export const QUERY_POSTS = gql`
-query posts {
+query getPosts {
  posts {
     _id
-    userId
     content
+    userId
   }
 }
 `;
+
+// query getThoughts {
+//   thoughts {
+//     _id
+//     thoughtText
+//     thoughtAuthor
+//     createdAt
+//   }
+// }
+// `;

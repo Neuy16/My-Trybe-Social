@@ -1,65 +1,31 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
-import PostList from '../components/PostList';
-import { QUERY_POSTS } from '../utils/queries';
-
-/* import { Link } from 'react-router-dom';
-import Auth from '../utils/auth'; */
+import React, { Fragment, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import PostList from "../components/PostList";
+import usePostUserData from "../components/usePostUserData";
 
 const UserHome = () => {
-    const { userId } = useParams();
+  const { userId } = useParams();
+  const data = usePostUserData(userId);
 
-    // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
-    const { loading, data } = useQuery(
-        userId ? QUERY_SINGLE_USER : QUERY_ME,
-        {
-            variables: { userId: userId },
-        },
-    );
-
-    const { loadingP, userPost } = useQuery(QUERY_POSTS);
-
-    if (loadingP) {
-        return <div>Loading posts...</div>;
-    }
-
-
-    //this is our problem
-    // user posts is returning undefined instead of having the userPost value
-    console.log(userPost);
-
-
-
-
-
-
-
-    if (loading) {
-        return <div>Loading user...</div>;
-    }
-
-/* console.log(data); */
-
-    return (
-        <section className='hero is-fullheight has-background-success-light'>
-            <div className=''>
-            <div className='is-size-2 is-italic is-underlined'>
-                <strong className=''>Welcome to your timeline {data.user.firstName}!</strong>
+  return (
+    <Fragment>
+      {!!data &&
+        <section className="post-feed-section hero is-fullheight">
+          <div className="">
+            <div className="">
+              <strong className="">
+                Welcome to your timeline {data[0].user?.firstName}
+              </strong>
             </div>
 
-
-            <div className='hero is-halfheight has-background-white-ter'>
-                {loading ? (
-                    <div> Loading... </div>
-                ) : (
-                    <PostList posts={userPost}/>
-                )}
+            <div className="user-post-section hero">
+              <PostList posts={data[1].posts} />
             </div>
-            </div>
+          </div>
         </section>
-    );
+      }
+    </Fragment>
+  );
 };
 
 export default UserHome;

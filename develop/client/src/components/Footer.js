@@ -21,8 +21,8 @@ const Footer = () => {
     return (
         <Fragment>
             {!!user &&
-                <div className="footer">
-                    <div>
+                <div >
+                    <div className="nav-section navbar is-fixed-bottom">
                         <Navigation userId={user._id} />
                     </div>
                 </div>}
