@@ -2,6 +2,7 @@
     --backgroundGreen: rgb(54, 109, 75);
     --menuGreen: rgb(207, 220, 212);
     --buttonOrange: rgb(191, 118, 29);
+    --postgreen:rgb(226, 234, 229);
     background-color: var(--backgroundGreen);
 }
 
@@ -43,7 +44,6 @@
 .LPtxt {
     font-size: x-large;
 }
-
 
 /* Login Page Styles */
 
@@ -206,4 +206,52 @@
 
 .profile-pic {
     padding: 1px;
+}
+
+/* Feed Page Styles */
+
+.post-feed-section {
+    background-color: var(--menuGreen);
+    text-align: center;
+}
+
+.single-post {
+    margin: 1%;
+    padding:5%;
+    border: 1px;
+    border-style: solid;
+    border-color: var(--backgroundGreen);
+    background-color: var(--postgreen);
+}
+
+/* Profile Page Styles */
+
+.nav-section {
+    background-color: var(--backgroundGreen);
+}
+
+.nav-buttons {
+    display: inline;
+}
+
+.nav-buttons li {
+    display: inline;
+}
+
+.single-nav-btn {
+    background-color: var(--backgroundGreen);
+    font-size: large;
+    font-family: fantasy;
+    border: none;
+    width: 50vw;
+    height: 10vh;
+    border-radius: 0%;
+}
+
+.single-nav-btn:hover {
+    background-color: var(--buttonOrange);
+}
+
+.nav-btn-txt {
+    color: var(--menuGreen);
 }

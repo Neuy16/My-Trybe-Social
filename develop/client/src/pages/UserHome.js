@@ -10,15 +10,15 @@ const UserHome = () => {
   return (
     <Fragment>
       {!!data &&
-        <section className="hero is-fullheight has-background-success-light">
+        <section className="post-feed-section hero is-fullheight">
           <div className="">
-            <div className="is-size-2 is-italic is-underlined">
+            <div className="">
               <strong className="">
-                Welcome to your timeline {data[0].user?.firstName}!
+                Welcome to your timeline {data[0].user?.firstName}
               </strong>
             </div>
 
-            <div className="hero is-halfheight has-background-white-ter">
+            <div className="user-post-section hero">
               <PostList posts={data[1].posts} />
             </div>
           </div>

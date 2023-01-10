@@ -7,12 +7,26 @@ import { QUERY_POSTS } from '../utils/queries';
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import Auth from '../utils/auth';
 import decode from 'jwt-decode';
+import 'bulma/css/bulma.css';
 /* import jwtDecode from 'jwt-decode'; */
 
-function Navigation({userId}) {
-    
-   /*  const { userId } = useParams(); */
+function Navigation({ userId }) {
 
+    /*  const { userId } = useParams(); */
+
+    function CustomLink({ to, children, ...props }) {
+        /*    const path = window.location.pathname */
+        const resolvedPath = useResolvedPath(to)
+        const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+    
+        return (
+            <li className={isActive ? "active" : ""}>
+                <Link to={to} {...props}>
+                    {children}
+                </Link>
+            </li>
+        );
+    }
 
     // If there is no `userId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
     const { loading, } = useQuery(
@@ -28,7 +42,7 @@ function Navigation({userId}) {
 
     if (!token) {
         return false;
-      }
+    }
     const decoded = decode(token);
 
     if (loading) {
@@ -36,29 +50,28 @@ function Navigation({userId}) {
     }
 
     return (
-        <nav>
-            <ul>
-                <CustomLink to={`/me/${decoded.data._id}`}>Home</CustomLink>
-                <CustomLink to={`/me/${decoded.data._id}/createpost`}>Post</CustomLink>
-                <CustomLink to="/logout">Log Out</CustomLink> {/* make this the profile link */}
-            </ul>
-        </nav>
+
+        <section> 
+                <ul className='nav-buttons navbar columns'>
+                    <li className='single-nav-btn button column is-one-quarter'>
+                    <CustomLink className='nav-btn-txt' to="/logout">Log Out</CustomLink>
+                    </li>
+                    <li className='single-nav-btn button column is-one-quarter'>
+                    <CustomLink className='nav-btn-txt' to={`/me/${decoded.data._id}`}>Home</CustomLink>
+                    </li>
+                    <li className='single-nav-btn button column is-one-quarter'>
+                    <CustomLink className='nav-btn-txt' to={`/me/${decoded.data._id}/createpost`}>Post</CustomLink>
+                    </li>
+                    <li className='single-nav-btn button column is-one-quarter'>
+                    <CustomLink className='nav-btn-txt' to={`/profile/${decoded.data._id}`}>Profile</CustomLink>
+                    </li>
+                </ul>
+      
+        </section>
+
     );
 }
 
-function CustomLink({ to, children, ...props }) {
-    /*    const path = window.location.pathname */
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
-
-    return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>
-                {children}
-            </Link>
-        </li>
-    );
-}
 
 
 export default Navigation;
